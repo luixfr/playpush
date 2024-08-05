@@ -1,0 +1,20 @@
+{
+  "name": "playpush",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:luixfr/playpush.git",
+  "author": "Luis Flores <luisk.fra@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx tsx src/main.ts"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "commander": "^12.1.0",
+    "googleapis": "^140.0.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.16.5",
+    "typescript": "^5.5.4"
+  }
+}
