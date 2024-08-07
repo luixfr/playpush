@@ -11,6 +11,7 @@ import {
   packageNameOptioon,
   bundleFileOption,
   trackOption,
+  releaseNotesLanguagesOption,
 } from "./options";
 import { upload } from "./upload";
 const program = new Command();
@@ -21,6 +22,7 @@ program
   .addOption(keyFileOption)
   .addOption(appVersionNameOption)
   .addOption(releaseNotesOption)
+  .addOption(releaseNotesLanguagesOption)
   .addOption(packageNameOptioon)
   .addOption(bundleFileOption)
   .addOption(trackOption);
