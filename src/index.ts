@@ -1,3 +1,5 @@
+#!/usr/bin/env tsx
+
 import { Command } from "commander";
 import { version } from "../package.json";
 
