@@ -6,16 +6,16 @@ The PlayPush CLI tool is designed to facilitate the process of uploading Android
 1. Upload an App Bundle:
 
 ```bash
-index -c /path/to/keyfile.json -v 1.0.0 --p com.example.myapp -b /path/to/app.aab 
+npx playpush -c /path/to/keyfile.json -v 1.0.0 --p com.example.myapp -b /path/to/app.aab 
 ```
 2. Upload an App Bundle with release notes:
 ```bash
-index -c /path/to/keyfile.json -v 1.0.0 -n "Initial release" -p com.example.myapp -b /path/to/app.aab 
+npx playpush -c /path/to/keyfile.json -v 1.0.0 -n "Initial release" -p com.example.myapp -b /path/to/app.aab 
 
 ```
-Upload an App Bundle with to beta channel:
+3. Upload an App Bundle to beta channel:
 ```bash
-index -v 1.0.0 -p com.example.myapp -b /path/to/app.aab -t beta
+npx playpush -v 1.0.0 -p com.example.myapp -b /path/to/app.aab -t beta
 ```
 
 ## Requirements
