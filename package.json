@@ -16,11 +16,21 @@
   "dependencies": {
     "@google-cloud/local-auth": "^3.0.1",
     "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
     "googleapis": "^140.0.1"
   },
   "devDependencies": {
     "tsx": "^4.16.5",
     "typescript": "^5.5.4"
   },
-  "keywords": ["CLI", "Google Play Store", "android", "aab", "publish", "upload", "android app", "playpush"]
+  "keywords": [
+    "CLI",
+    "Google Play Store",
+    "android",
+    "aab",
+    "publish",
+    "upload",
+    "android app",
+    "playpush"
+  ]
 }
