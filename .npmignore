@@ -1,6 +1,0 @@
-.env
-/node_modules
-/src
-yarn.lock
-.DS_Store
-tsconfig.json
