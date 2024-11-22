@@ -12,6 +12,7 @@ import {
   bundleFileOption,
   trackOption,
   releaseNotesLanguagesOption,
+  debugChangesNotSentForReviewOption,
 } from "./options";
 import { upload } from "./upload";
 const program = new Command();
@@ -25,8 +26,8 @@ program
   .addOption(releaseNotesLanguagesOption)
   .addOption(packageNameOptioon)
   .addOption(bundleFileOption)
-  .addOption(trackOption);
-
+  .addOption(trackOption)
+  .addOption(debugChangesNotSentForReviewOption);
 program.parse(process.argv);
 
 const options = program.opts();
@@ -36,6 +37,6 @@ if (!options.credentialsFilePath) {
   program.error("Not credentilas file provided");
 }
 const keyFile = options.credentialsFilePath;
-const { packageName, bundle, track, appVersionName, releaseNotes } = options;
+const { packageName, bundle, track, appVersionName, releaseNotes, changesNotSentForReview } = options;
 
-upload(program, keyFile, packageName, bundle, track, appVersionName, releaseNotes);
+upload(program, keyFile, packageName, bundle, track,changesNotSentForReview, appVersionName, releaseNotes );

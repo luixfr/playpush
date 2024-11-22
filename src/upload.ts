@@ -10,28 +10,37 @@ export async function upload(
   packageName: string,
   bundle: string,
   track: string,
-  versionName?:string,
-  releaseNotes?:string
+  changesNotSentForReview: boolean,
+  versionName?: string,
+  releaseNotes?: string
 ) {
   const auth = authenticate(keyFile, SCOPES);
-console.log("Authenticated")
+  console.log("Authenticated");
   google.options({ auth });
 
   const play = createAdroidPublisher(google, auth, packageName);
   const editId = await createEdit(program, play, packageName);
-  console.log("Edit created:",editId )
+  console.log("Edit created:", editId);
   const upload = await uploadBundle(play, editId, packageName, bundle);
 
-  console.log("Bundle uploaded")
+  console.log("Bundle uploaded");
   if (!upload.versionCode) {
     program.error("Invalid upload version code");
     return;
   }
 
-  await setUploadTrack(play, editId, packageName, track, versionName, releaseNotes, upload.versionCode);
-  console.log("Tack updated")
-  await commitUpload(play, editId, packageName);
-  console.log("Edit commited")
+  await setUploadTrack(
+    play,
+    editId,
+    packageName,
+    track,
+    versionName,
+    releaseNotes,
+    upload.versionCode
+  );
+  console.log("Tack updated");
+  await commitUpload(play, editId, packageName, changesNotSentForReview);
+  console.log("Edit commited");
 }
 
 function authenticate(keyFile: string, scopes: string[]) {
@@ -111,7 +120,7 @@ async function setUploadTrack(
           name: versionName,
           releaseNotes: [{ language: "en-US", text: releaseNotes }],
           versionCodes: versionCode ? [versionCode.toString()] : undefined,
-          status: "completed"
+          status: "completed",
         },
       ],
     },
@@ -121,8 +130,13 @@ async function setUploadTrack(
 async function commitUpload(
   play: androidpublisher_v3.Androidpublisher,
   editId: string,
-  packageName: string
+  packageName: string,
+  changesNotSentForReview: boolean
 ) {
-  const commit = await play.edits.commit({ editId, packageName });
+  const commit = await play.edits.commit({
+    editId,
+    packageName,
+    changesNotSentForReview,
+  });
   return commit.data;
 }
