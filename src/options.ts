@@ -1,5 +1,5 @@
 import { Option } from "commander";
-import 'dotenv/config'
+import "dotenv/config";
 
 export const debugOption = new Option(
   "-d, --debug",
@@ -10,7 +10,10 @@ export const keyFileOption = new Option(
   "-c, --credentials-file-path <path>",
   "Path to keyfile.json"
 )
-  .default(process.env.CREDENTIALS_KEYFILE, "The value of the CREDENTIALS_KEYFILE env variable")
+  .default(
+    process.env.CREDENTIALS_KEYFILE,
+    "The value of the CREDENTIALS_KEYFILE env variable"
+  )
   .makeOptionMandatory(false);
 
 export const appVersionNameOption = new Option(
@@ -43,4 +46,11 @@ export const bundleFileOption = new Option(
 export const trackOption = new Option("-t, --track <tracks>", "Relase track")
   .choices(["alpha", "beta", "production", "internal"])
   .default("internal")
+  .makeOptionMandatory(false);
+
+export const debugChangesNotSentForReviewOption = new Option(
+  "-r, --changesNotSentForReview",
+  "Indicates that the changes in this edit will not be reviewed until they are explicitly sent for review from the Google Play Console UI. These changes will be added to any other changes that are not yet sent for review."
+)
+  .default(true)
   .makeOptionMandatory(false);
