@@ -10,7 +10,7 @@ export async function upload(
   packageName: string,
   bundle: string,
   track: string,
-  changesNotSentForReview: boolean,
+  changesNotSentForReview?: boolean,
   versionName?: string,
   releaseNotes?: string
 ) {
@@ -131,7 +131,7 @@ async function commitUpload(
   play: androidpublisher_v3.Androidpublisher,
   editId: string,
   packageName: string,
-  changesNotSentForReview: boolean
+  changesNotSentForReview?: boolean
 ) {
   const commit = await play.edits.commit({
     editId,

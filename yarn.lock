@@ -436,6 +436,16 @@ open@^7.0.3:
     is-docker "^2.0.0"
     is-wsl "^2.1.1"
 
+playpush@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/playpush/-/playpush-1.0.7.tgz#3090246ceac67b9c389421cf6e5bc43249f56206"
+  integrity sha512-d7otu6Jint+Go0AinV4ZJxgORiWfMpG6Mdt+saD+EkqNXw1YDbNnXTmvkZwSxtJa+8OSrqULrIgQ5GG6ztEkzw==
+  dependencies:
+    "@google-cloud/local-auth" "^3.0.1"
+    commander "^12.1.0"
+    dotenv "^16.4.5"
+    googleapis "^140.0.1"
+
 qs@^6.7.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.13.0.tgz#6ca3bd58439f7e245655798997787b0d88a51906"

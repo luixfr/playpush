@@ -18,7 +18,7 @@ import { upload } from "./upload";
 const program = new Command();
 
 program
-  .version(version,"--version", "playpush version")
+  .version(version, "--version", "playpush version")
   .addOption(debugOption)
   .addOption(keyFileOption)
   .addOption(appVersionNameOption)
@@ -37,6 +37,22 @@ if (!options.credentialsFilePath) {
   program.error("Not credentilas file provided");
 }
 const keyFile = options.credentialsFilePath;
-const { packageName, bundle, track, appVersionName, releaseNotes, changesNotSentForReview } = options;
+const {
+  packageName,
+  bundle,
+  track,
+  appVersionName,
+  releaseNotes,
+  changesNotSentForReview,
+} = options;
 
-upload(program, keyFile, packageName, bundle, track,changesNotSentForReview, appVersionName, releaseNotes );
+upload(
+  program,
+  keyFile,
+  packageName,
+  bundle,
+  track,
+  changesNotSentForReview ? changesNotSentForReview === "yes" : undefined,
+  appVersionName,
+  releaseNotes
+);
